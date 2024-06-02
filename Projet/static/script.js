@@ -52,7 +52,7 @@ document.getElementById('searchButton').addEventListener('click', function(event
         } else {
             data.similar_images.forEach(image => {
                 const imgElement = document.createElement('img');
-                imgElement.src = `static/images/${image}`; // Assurez-vous que le chemin est correct ici
+                imgElement.src = `static/images/${image}`;
                 imgElement.classList.add('result-image'); // Add class for additional styling
                 resultsContainer.appendChild(imgElement);
             });
