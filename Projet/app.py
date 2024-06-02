@@ -13,9 +13,9 @@ app.config['IMAGE_FOLDER'] = 'static/images'
 
 # Dictionary to map model names to file paths
 model_files = {
-    "VGG16": "Features_train/VGG16.txt",
-    "DenseNet121": "Features_train/DenseNet121.txt",
-    "EfficientNetB0": "Features_train/EfficientNetB0.txt"
+    "VGG16": "Projet/Features_train/VGG16.txt",
+    "DenseNet121": "Projet/Features_train/DenseNet121.txt",
+    "EfficientNetB0": "Projet/Features_train/EfficientNetB0.txt"
 }
 
 # Load the precomputed features based on the selected model

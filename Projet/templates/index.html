@@ -30,20 +30,17 @@
             <label for="model">Choix modèles:</label>
             <select id="model" name="model" class="fixed-color">
                 <option value="VGG16">VGG16</option>
-                <option value="EfficientNetV2L">EfficientNetV2L</option>
-                <option value="InceptionV3">InceptionV3</option>
+                <option value="DenseNet121">DenseNet121</option>
+                <option value="EfficientNetB0">EfficientNetB0</option>
             </select>
         </div>
         
         <div class="form-group fixed-color">
             <label for="distance">Choix distance:</label>
             <select id="distance" name="distance" class="fixed-color">
-                <option value="euclidean">Euclidean</option>
-                <option value="correlation">Correlation</option>
-                <option value="chi-square">Chi-square</option>
-                <option value="bhattacharyya">Bhattacharyya</option>
-                <option value="brute-force">Brute Force Matcher</option>
-                <option value="flann">Flann</option>
+                <option value="euclideanDistance">Euclidean</option>
+                <option value="chiSquareDistance">Chi-square</option>
+                <option value="bhatta">Bhattacharyya</option>
             </select>
         </div>
         
@@ -55,7 +52,6 @@
         
         <div id="results" style="display: none;">
             <h2>Résultats de la recherche</h2>
-            <div id="graph"></div>
             <div id="topResults"></div>
         </div>
     </main>

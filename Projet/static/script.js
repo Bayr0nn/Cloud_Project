@@ -15,7 +15,9 @@ document.getElementById('image_index').addEventListener('input', function() {
     }
 });
 
-document.getElementById('searchButton').addEventListener('click', function() {
+document.getElementById('searchButton').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
     document.getElementById('loadingSpinner').style.display = 'block';
     document.getElementById('results').style.display = 'none';
     
@@ -24,32 +26,41 @@ document.getElementById('searchButton').addEventListener('click', function() {
     const numNeighbors = document.getElementById('numNeighbors').value;
     const model = document.getElementById('model').value;
     const distanceMetric = document.getElementById('distance').value;
+
+    // Create FormData object to send data
+    const formData = new FormData();
+    formData.append('image_index', imageIndex);
+    formData.append('numNeighbors', numNeighbors);
+    formData.append('model', model);
+    formData.append('distance', distanceMetric);
     
     // Call backend API to perform the search
     fetch('/search', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            image_index: imageIndex,
-            numNeighbors: numNeighbors,
-            model: model,
-            distance_metric: distanceMetric
-        })
+        body: formData
     }).then(response => response.json())
     .then(data => {
         document.getElementById('loadingSpinner').style.display = 'none';
         document.getElementById('results').style.display = 'block';
         
         // Display results
-        document.getElementById('graph').innerHTML = data.graph;
-        document.getElementById('topResults').innerHTML = data.topResults.map(result => `
-            <div>
-                <img src="${result.imageUrl}" alt="${result.similarity}">
-                <p>Similarity: ${result.similarity}</p>
-            </div>
-        `).join('');
+        const resultsContainer = document.getElementById('topResults');
+        resultsContainer.innerHTML = '';
+
+        if (data.error) {
+            resultsContainer.innerHTML = `<p>${data.error}</p>`;
+        } else {
+            data.similar_images.forEach(image => {
+                const imgElement = document.createElement('img');
+                imgElement.src = `static/images/${image}`;
+                imgElement.style.maxWidth = '100px';
+                imgElement.style.margin = '5px';
+                resultsContainer.appendChild(imgElement);
+            });
+        }
+    }).catch(error => {
+        document.getElementById('loadingSpinner').style.display = 'none';
+        console.error('Error:', error);
     });
 });
 
