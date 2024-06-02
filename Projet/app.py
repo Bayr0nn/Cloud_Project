@@ -66,6 +66,8 @@ def getkVoisins(lfeatures, test, k, distance_metric):
 def recherche(features1, image_req, top, distance_metric):
     voisins = getkVoisins(features1, features1[image_req], top, distance_metric)
     nom_images_proches = [voisins[k][0] for k in range(top)]
+    # Enlevez le préfixe incorrect s'il existe
+    nom_images_proches = [os.path.basename(image) for image in nom_images_proches]
     return nom_images_proches
 
 # Database connection
@@ -133,6 +135,7 @@ def search():
     try:
         features1 = load_features(model_name)
         similar_images = recherche(features1, image_index, top, distance_metric)
+        print(f"Similar images: {similar_images}")  # Ajoutez cette ligne pour vérifier les noms d'images
         return jsonify(similar_images=similar_images)
     except ValueError as e:
         return jsonify(error=str(e))

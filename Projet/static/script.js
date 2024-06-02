@@ -52,9 +52,8 @@ document.getElementById('searchButton').addEventListener('click', function(event
         } else {
             data.similar_images.forEach(image => {
                 const imgElement = document.createElement('img');
-                imgElement.src = `static/images/${image}`;
-                imgElement.style.maxWidth = '100px';
-                imgElement.style.margin = '5px';
+                imgElement.src = `static/images/${image}`; // Assurez-vous que le chemin est correct ici
+                imgElement.classList.add('result-image'); // Add class for additional styling
                 resultsContainer.appendChild(imgElement);
             });
         }
