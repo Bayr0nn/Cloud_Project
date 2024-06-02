@@ -51,10 +51,19 @@ document.getElementById('searchButton').addEventListener('click', function(event
             resultsContainer.innerHTML = `<p>${data.error}</p>`;
         } else {
             data.similar_images.forEach(image => {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('result-container'); // Add class for additional styling
+
                 const imgElement = document.createElement('img');
                 imgElement.src = `static/images/${image}`;
                 imgElement.classList.add('result-image'); // Add class for additional styling
-                resultsContainer.appendChild(imgElement);
+
+                const imgCaption = document.createElement('p');
+                imgCaption.innerText = image; // Add image name as caption
+
+                imgContainer.appendChild(imgElement);
+                imgContainer.appendChild(imgCaption);
+                resultsContainer.appendChild(imgContainer);
             });
         }
     }).catch(error => {

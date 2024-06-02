@@ -1,14 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column; /* Ajouté pour permettre une disposition en colonne */
+    flex-direction: column; /* Permet une disposition en colonne */
     align-items: center; /* Centre horizontalement le conteneur principal */
     min-height: 100vh; /* Assure que le conteneur prend toute la hauteur de la vue */
     margin: 0;
     padding: 0;
     background: linear-gradient(-25deg, #013220 0%, #3a78b7 50%, #262626 50%, #607d8d 100%); /* Définit un dégradé statique */
     color: white; /* Assure que le texte est blanc */
-    padding-bottom: 50px; /* Ajoute du padding en bas pour être sûr de pouvoir agrandir la page et de voir l'image en entier */
+    padding-bottom: 50px; /* Ajoute du padding en bas pour s'assurer que l'image à la dernière ligne est visible */
 }
 
 header {
@@ -89,12 +89,27 @@ button:hover {
     justify-content: center; /* Centre les images horizontalement */
 }
 
+.result-container {
+    display: flex;
+    flex-direction: column; /* Aligne l'image et la légende verticalement */
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement */
+    max-width: 11.5%; /* Ajustez la largeur maximale du conteneur pour avoir 8 images par ligne */
+    margin: 5px;
+}
+
 #topResults img.result-image {
-    max-width: 11.5%; /* Ajustez la largeur maximale de l'image pour avoir 8 images par ligne */
-    margin: 5px; /* Ajoutez un espace entre les images */
+    width: 100%; /* Ajustez la largeur de l'image à 100% du conteneur */
     border-radius: 5px; /* Ajoutez un léger arrondi aux bords des images */
     object-fit: contain; /* Maintient les proportions de l'image */
     border: 1px solid #ccc; /* Ajoutez une bordure légère aux images */
+    margin-bottom: 5px; /* Ajoute un espace entre l'image et le texte */
+}
+
+#topResults .result-container p {
+    text-align: center; /* Centre le texte horizontalement */
+    margin: 0; /* Supprime les marges par défaut */
+    color: white; /* Assure que le texte est blanc */
 }
 
 #chosenImage {
