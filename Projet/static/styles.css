@@ -71,11 +71,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-.spinner {
-    margin-top: 20px;
-    text-align: center;
-}
-
 #results {
     margin-top: 20px;
     width: 100%; /* Assurez-vous que le conteneur des résultats prend toute la largeur */

@@ -18,7 +18,6 @@ document.getElementById('image_index').addEventListener('input', function() {
 document.getElementById('searchButton').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
-    document.getElementById('loadingSpinner').style.display = 'block';
     document.getElementById('results').style.display = 'none';
     
     // Get user input
@@ -40,7 +39,6 @@ document.getElementById('searchButton').addEventListener('click', function(event
         body: formData
     }).then(response => response.json())
     .then(data => {
-        document.getElementById('loadingSpinner').style.display = 'none';
         document.getElementById('results').style.display = 'block';
         
         // Display results
@@ -67,7 +65,6 @@ document.getElementById('searchButton').addEventListener('click', function(event
             });
         }
     }).catch(error => {
-        document.getElementById('loadingSpinner').style.display = 'none';
         console.error('Error:', error);
     });
 });
@@ -82,8 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
     errorMessage.style.marginTop = '10px';
     errorMessage.style.display = 'none';
     document.querySelector('main').appendChild(errorMessage);
-
-    const loadingSpinner = document.getElementById('loadingSpinner');
 
     searchButton.addEventListener('click', function(event) {
         const imageIndex = imageIndexInput.value;
@@ -102,10 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             errorMessage.innerHTML = error;
             errorMessage.style.display = 'block';
-            loadingSpinner.style.display = 'none'; // Hide spinner if there's an error
         } else {
             errorMessage.style.display = 'none';
-            loadingSpinner.style.display = 'block'; // Show spinner when the search is launched
             // Add code here to launch the search
         }
     });
