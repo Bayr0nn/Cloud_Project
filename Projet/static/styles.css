@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Centre horizontalement le conteneur principal */
+    align-items: center; /* Centre verticalement le conteneur principal */
+    min-height: 100vh; /* Assure que le conteneur prend toute la hauteur de la vue */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient( -25deg, #013220 0%, #3a78b7 50%, #262626 50%, #607d8d 100%); /* Définit un dégradé statique */
+    color: white; /* Assure que le texte est blanc */
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre tous les enfants du conteneur verticalement */
+    text-align: center; /* Centre le texte */
+    width: 100%;
+    max-width: 600px; /* Limite la largeur maximale du conteneur principal */
+    padding: 20px;
+    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+    margin: 0 auto; /* Centre le conteneur principal horizontalement */
+    background: rgba(255, 255, 255, 0.1); /* Ajoute un fond transparent pour les éléments principaux */
+    border-radius: 6px;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 5px;
+    color: white; /* Assure que le texte des labels est blanc */
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 5px;
+    text-align: center;
+    color: black; /* Fixe la couleur du texte */
+    background: rgba(255, 255, 255, 0.9); /* Fixe la couleur de fond */
+    border: 1px solid #ccc; /* Ajoute une bordure grise */
+    border-radius: 5px; /* Ajoute un léger arrondi aux bords */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    max-width: 300px;
+    background: #007bff; /* Fixe la couleur de fond du bouton */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.spinner {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#results {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#graph, #topResults {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+#chosenImage {
+    max-width: 100%;
+    max-height: 300px; /* Limite de la hauteur de l'image */
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    object-fit: contain; /* Maintenir les proportions de l'image */
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: none; /* Empêche le filtre d'affecter l'image */
+    background-color: white; /* Ajoute un fond blanc pour empêcher la teinte */
+}

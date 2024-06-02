@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</head>
+<body>
+    <section>
+        <div class="box">
+            <div class="form">
+                <img src="{{ url_for('static', filename='images/_user.jpg') }}" class="user" alt="">
+                <h2>Bon retour</h2>
+                <form action="{{ url_for('login') }}" method="post">
+                    <div class="inputBx">
+                        <input type="text" name="username" placeholder="Nom d'utilisateur" id="username" oninput="validation()" required autofocus>
+                        <img src="{{ url_for('static', filename='images/user.png') }}" alt="">
+                    </div>
+                    <div class="inputBx">
+                        <input type="password" name="password" id="password" placeholder="Mot de passe" oninput="validation()" required>
+                        <img src="{{ url_for('static', filename='images/lock.png') }}" alt="">
+                    </div>
+                    <label class="remeber"><input type="checkbox"> Se souvenir de moi</label>
+                    <div class="inputBx">
+                        <input type="submit" name="submit" value="Connexion" id="submit" disabled>
+                    </div>
+                </form>
+                {% if error %}
+                <p style="color:red;">{{ error }}</p>
+                {% endif %}
+                <p>Besoin d'un <a href="{{ url_for('register') }}">compte</a>?</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
