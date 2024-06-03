@@ -81,6 +81,7 @@ button:hover {
     display: flex;
     flex-wrap: wrap; /* Permet le retour à la ligne des images */
     justify-content: center; /* Centre les images horizontalement */
+    width: 100%; /* Assurez-vous que le conteneur des images prend toute la largeur */
 }
 
 #topResults .result-container {
@@ -88,7 +89,7 @@ button:hover {
     flex-direction: column; /* Aligne l'image et la légende verticalement */
     align-items: center; /* Centre les éléments horizontalement */
     justify-content: center; /* Centre les éléments verticalement */
-    max-width: 11.5%; /* Ajuste la largeur maximale du conteneur pour avoir 8 images par ligne */
+    flex: 0 1 11.5%; /* Ajuste la largeur maximale du conteneur pour avoir 8 images par ligne */
     margin: 5px;
 }
 
@@ -106,40 +107,18 @@ button:hover {
     color: white; /* Assure que le texte est blanc */
 }
 
-#resultsRP {
+#graph {
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
-    width: 100%; /* Assurez-vous que le conteneur des résultats prend toute la largeur */
-    text-align: center;
-    padding-bottom: 50px; /* Ajoute du padding en bas pour s'assurer que l'image à la dernière ligne est visible */
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-#RP {
-    display: flex;
-    flex-wrap: wrap; /* Permet le retour à la ligne des images */
-    justify-content: center; /* Centre les images horizontalement */
-}
-
-#RP .result-container {
-    display: flex;
-    flex-direction: column; /* Aligne l'image et la légende verticalement */
-    align-items: center; /* Centre les éléments horizontalement */
-    justify-content: center; /* Centre les éléments verticalement */
-    max-width: 70%; /* Ajuste la largeur maximale du conteneur pour avoir 8 images par ligne */
-    margin: 5px;
-}
-
-#RP img.result-image {
-    width: 100%; /* Ajuste la largeur de l'image à 100% du conteneur */
-    border-radius: 5px; /* Ajoute un léger arrondi aux bords des images */
-    object-fit: contain; /* Maintient les proportions de l'image */
-    border: 1px solid #ccc; /* Ajoute une bordure légère aux images */
-    margin-bottom: 5px; /* Ajoute un espace entre l'image et le texte */
-}
-
-#RP .result-container p {
-    text-align: center; /* Centre le texte horizontalement */
-    margin: 0; /* Supprime les marges par défaut */
-    color: white; /* Assure que le texte est blanc */
+#graph img {
+    max-width: 70%; /* Ajuste la largeur maximale de l'image du graphique */
+    border-radius: 5px; /* Ajoute un léger arrondi aux bords de l'image */
+    border: 1px solid #ccc; /* Ajoute une bordure légère à l'image */
 }
 
 #chosenImage {

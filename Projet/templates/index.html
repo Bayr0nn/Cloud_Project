@@ -7,33 +7,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <header>
+        <h1>Bienvenue, <span id="username">{{ username }}</span></h1>
+    </header>
     <main>
-        <!-- En-tête de la page -->
-        <header>
-            <h1>Bienvenue, <span id="username">{{ username }}</span></h1>
-        </header>
-        
-        <!-- Formulaire pour entrer le numéro de l'image -->
         <div class="form-group fixed-color">
             <label for="image_index">Entrez le numéro de l'image (0-999):</label>
             <input type="number" id="image_index" name="image_index" class="fixed-color" min="0" max="999">
             <p id="imageIndexError" style="color: yellow; display: none;">Le numéro de l'image doit être compris entre 0 et 999.</p>
         </div>
         
-        <!-- Aperçu de l'image sélectionnée -->
         <div id="imagePreview" class="form-group" style="display: none;">
             <h3>Image Choisie:</h3>
             <img id="chosenImage" src="" alt="Image Choisie" class="fixed-color">
         </div>
         
-        <!-- Formulaire pour choisir le nombre de voisins -->
         <div class="form-group fixed-color">
             <label for="numNeighbors">Choix nombre voisin (1-1000):</label>
             <input type="number" id="numNeighbors" name="numNeighbors" class="fixed-color" min="1" max="1000">
             <p id="numNeighborsError" style="color: yellow; display: none;">Le nombre de voisins doit être compris entre 1 et 1000.</p>
         </div>
         
-        <!-- Formulaire pour choisir le modèle -->
         <div class="form-group fixed-color">
             <label for="model">Choix modèles:</label>
             <select id="model" name="model" class="fixed-color">
@@ -43,7 +37,6 @@
             </select>
         </div>
         
-        <!-- Formulaire pour choisir la distance -->
         <div class="form-group fixed-color">
             <label for="distance">Choix distance:</label>
             <select id="distance" name="distance" class="fixed-color">
@@ -53,19 +46,19 @@
             </select>
         </div>
         
-        <!-- Bouton pour lancer la recherche -->
         <button id="searchButton" class="fixed-color-button">Lancer la recherche</button>
+        
+        <div id="loadingSpinner" class="spinner" style="display: none;">
+            <img src="{{ url_for('static', filename='spinner.gif') }}" alt="Loading...">
+        </div>
     </main>
     
-    <!-- Section pour afficher les résultats de la recherche -->
     <div id="results" style="display: none;">
         <h2>Résultats de la recherche</h2>
+        <div id="graph">
+            <img id="rpImage" src="" alt="RP Graph" style="display:none;">
+        </div>
         <div id="topResults"></div>
-    </div>
-
-    <div id="resultsRP" style="display: none;">
-        <h2>RP Results</h2>
-        <div id="RP"></div>
     </div>
     
     <script src="{{ url_for('static', filename='script.js') }}"></script>
