@@ -15,6 +15,24 @@ header {
     padding: 20px;
     text-align: center;
     width: 100%;
+    position: relative;
+}
+
+#logoutButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Arrondi des coins du bouton */
+    cursor: pointer;
+    text-decoration: none; /* Supprime la décoration de lien par défaut */
+}
+
+#logoutButton:hover {
+    background-color: #0056b3; /* Change la couleur de fond du bouton au survol */
 }
 
 main {
@@ -111,8 +129,8 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin-bottom: 20px; /* Ajoute un espace entre le graphique et les images */
     width: 100%;
-    margin-bottom: 20px;
 }
 
 #graph img {
