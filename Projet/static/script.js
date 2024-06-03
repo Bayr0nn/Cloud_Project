@@ -3,18 +3,38 @@ document.getElementById('image_index').addEventListener('input', function() {
     const imageIndex = this.value;
     const chosenImage = document.getElementById('chosenImage');
     const imagePreview = document.getElementById('imagePreview');
+    const imageIndexError = document.getElementById('imageIndexError');
 
-    // Si un numéro d'image est entré, afficher l'image correspondante
-    if (imageIndex) {
-        const imageUrl = `static/images/${imageIndex}.jpg`; // Assurez-vous que les images sont dans ce chemin
-        chosenImage.src = imageUrl;
-        chosenImage.onload = function() {
-            chosenImage.style.maxWidth = '100%';
-            chosenImage.style.maxHeight = '300px'; // Limite de la hauteur de l'image
-        };
-        imagePreview.style.display = 'block';
+    // Vérifier si le numéro de l'image est dans la plage valide
+    if (imageIndex < 0 || imageIndex > 999) {
+        imageIndexError.style.display = 'block';
+        imagePreview.style.display = 'none';
     } else {
-        imagePreview.style.display = 'none'; // Masquer l'aperçu de l'image si aucun numéro n'est entré
+        imageIndexError.style.display = 'none';
+        if (imageIndex) {
+            const imageUrl = `static/images/${imageIndex}.jpg`; // Assurez-vous que les images sont dans ce chemin
+            chosenImage.src = imageUrl;
+            chosenImage.onload = function() {
+                chosenImage.style.maxWidth = '100%';
+                chosenImage.style.maxHeight = '300px'; // Limite de la hauteur de l'image
+            };
+            imagePreview.style.display = 'block';
+        } else {
+            imagePreview.style.display = 'none'; // Masquer l'aperçu de l'image si aucun numéro n'est entré
+        }
+    }
+});
+
+// Ajout d'un écouteur d'événements pour l'entrée du nombre de voisins
+document.getElementById('numNeighbors').addEventListener('input', function() {
+    const numNeighbors = this.value;
+    const numNeighborsError = document.getElementById('numNeighborsError');
+
+    // Vérifier si le nombre de voisins est dans la plage valide
+    if (numNeighbors < 1 || numNeighbors > 1000) {
+        numNeighborsError.style.display = 'block';
+    } else {
+        numNeighborsError.style.display = 'none';
     }
 });
 
@@ -31,12 +51,12 @@ document.getElementById('searchButton').addEventListener('click', function(event
     const errorMessage = document.getElementById('error-message');
     let error = '';
 
-    if (!imageIndex) {
-        error += 'Veuillez entrer le numéro de l\'image.<br>';
+    if (imageIndex === '' || imageIndex < 0 || imageIndex > 999) {
+        error += 'Veuillez entrer un numéro d\'image correct.<br>';
     }
 
-    if (!numNeighbors) {
-        error += 'Veuillez entrer le nombre de voisins.<br>';
+    if (numNeighbors === '' || numNeighbors < 1 || numNeighbors > 1000) {
+        error += 'Veuillez entrer un nombre de voisins correct.<br>';
     }
 
     if (error) {
@@ -97,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajout d'un élément pour afficher les messages d'erreur
     const errorMessage = document.createElement('div');
     errorMessage.id = 'error-message';
-    errorMessage.style.color = 'red';
+    errorMessage.style.color = 'yellow';
     errorMessage.style.marginTop = '10px';
     errorMessage.style.display = 'none';
     document.querySelector('main').appendChild(errorMessage);

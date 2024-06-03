@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +8,32 @@
 </head>
 <body>
     <main>
-        <!-- En-tête avec message de bienvenue -->
+        <!-- En-tête de la page -->
         <header>
             <h1>Bienvenue, <span id="username">{{ username }}</span></h1>
         </header>
-
-        <!-- Groupe de formulaire pour entrer le numéro de l'image -->
+        
+        <!-- Formulaire pour entrer le numéro de l'image -->
         <div class="form-group fixed-color">
-            <label for="image_index">Entrez le numéro de l'image:</label>
-            <input type="number" id="image_index" name="image_index" class="fixed-color">
+            <label for="image_index">Entrez le numéro de l'image (0-999):</label>
+            <input type="number" id="image_index" name="image_index" class="fixed-color" min="0" max="999">
+            <p id="imageIndexError" style="color: yellow; display: none;">Le numéro de l'image doit être compris entre 0 et 999.</p>
         </div>
-
-        <!-- Aperçu de l'image choisie -->
+        
+        <!-- Aperçu de l'image sélectionnée -->
         <div id="imagePreview" class="form-group" style="display: none;">
             <h3>Image Choisie:</h3>
             <img id="chosenImage" src="" alt="Image Choisie" class="fixed-color">
         </div>
-
-        <!-- Groupe de formulaire pour choisir le nombre de voisins -->
+        
+        <!-- Formulaire pour choisir le nombre de voisins -->
         <div class="form-group fixed-color">
-            <label for="numNeighbors">Choix nombre voisin:</label>
-            <input type="number" id="numNeighbors" name="numNeighbors" class="fixed-color">
+            <label for="numNeighbors">Choix nombre voisin (1-1000):</label>
+            <input type="number" id="numNeighbors" name="numNeighbors" class="fixed-color" min="1" max="1000">
+            <p id="numNeighborsError" style="color: yellow; display: none;">Le nombre de voisins doit être compris entre 1 et 1000.</p>
         </div>
-
-        <!-- Groupe de formulaire pour choisir le modèle -->
+        
+        <!-- Formulaire pour choisir le modèle -->
         <div class="form-group fixed-color">
             <label for="model">Choix modèles:</label>
             <select id="model" name="model" class="fixed-color">
@@ -40,8 +42,8 @@
                 <option value="EfficientNetB0">EfficientNetB0</option>
             </select>
         </div>
-
-        <!-- Groupe de formulaire pour choisir la distance -->
+        
+        <!-- Formulaire pour choisir la distance -->
         <div class="form-group fixed-color">
             <label for="distance">Choix distance:</label>
             <select id="distance" name="distance" class="fixed-color">
@@ -50,7 +52,7 @@
                 <option value="bhatta">Bhattacharyya</option>
             </select>
         </div>
-
+        
         <!-- Bouton pour lancer la recherche -->
         <button id="searchButton" class="fixed-color-button">Lancer la recherche</button>
     </main>
