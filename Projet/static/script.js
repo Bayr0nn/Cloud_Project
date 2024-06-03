@@ -106,6 +106,26 @@ document.getElementById('searchButton').addEventListener('click', function(event
                 imgContainer.appendChild(imgCaption);
                 resultsContainer.appendChild(imgContainer);
             });
+            // Create an image element for RP.jpg
+            document.getElementById('resultsRP').style.display = 'block';
+
+            const rpContainer = document.getElementById('RP');
+            rpContainer.innerHTML = '';
+
+            const rpImageContainer = document.createElement('div');
+            rpImageContainer.classList.add('result-container'); // Add a class for styling
+
+            const rpImage = document.createElement('img');
+            rpImage.src = `static/rp.jpg`;
+            rpImage.alt = 'RP Image';
+            rpImage.classList.add('result-image'); // Add a class for styling
+
+            const rpCaption = document.createElement('p');
+            rpCaption.innerText = 'RP Image'; // Add the image name as caption
+
+            rpImageContainer.appendChild(rpImage);
+            rpImageContainer.appendChild(rpCaption);
+            rpContainer.appendChild(rpImageContainer);
         }
     }).catch(error => {
         console.error('Error:', error); // Afficher l'erreur dans la console
