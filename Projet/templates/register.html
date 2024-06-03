@@ -11,20 +11,26 @@
     <section>
         <div class="box">
             <div class="form">
+                <!-- Titre du formulaire d'inscription -->
                 <h2>Créer un compte</h2>
+                <!-- Formulaire d'inscription -->
                 <form action="{{ url_for('register') }}" method="post">
+                    <!-- Champ de saisie du nom d'utilisateur -->
                     <div class="inputBx">
                         <input type="text" name="username" placeholder="Nom d'utilisateur" required autofocus>
                         <img src="{{ url_for('static', filename='images/user.png') }}" alt="">
                     </div>
+                    <!-- Champ de saisie du mot de passe -->
                     <div class="inputBx">
                         <input type="password" name="password" placeholder="Mot de passe" required>
                         <img src="{{ url_for('static', filename='images/lock.png') }}" alt="">
                     </div>
+                    <!-- Bouton de soumission -->
                     <div class="inputBx">
                         <input type="submit" name="submit" value="Inscription">
                     </div>
                 </form>
+                <!-- Lien vers la page de connexion -->
                 <p>Vous avez déjà un compte? <a href="{{ url_for('login') }}">Connexion</a></p>
             </div>
         </div>

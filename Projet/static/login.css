@@ -5,14 +5,15 @@
     font-family: "Poppins", sans-serif;
 }
 
+/* Section principale de la page */
 section {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
     background: linear-gradient( -25deg, #03a9f4 0%, #3a78b7 50%, #262626 50%, #607d8d 100%);
-    backdrop-filter: hue-rotate(120deg);
-    animation: animate 10s ease-in infinite;
+    backdrop-filter: hue-rotate(120deg); /* Filtre d'arrière-plan */
+    animation: animate 10s ease-in infinite; /* Animation de rotation des couleurs */
 }
 
 @keyframes animate {
@@ -24,6 +25,7 @@ section {
     }
 }
 
+/* Conteneur principal de la boîte de connexion/inscription */
 .box {
     position: relative;
     padding: 50px;
@@ -31,13 +33,13 @@ section {
     width: 360px;
     height: 480px;
     display: flex;
-    transform: translateY(-800px);
+    transform: translateY(-800px); /* Position initiale hors écran */
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
-    animation: appare 1.5s linear;
+    background: rgba(255, 255, 255, 0.1); /* Fond transparent */
+    border-radius: 6px; /* Coins arrondis */
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2); /* Ombre */
+    animation: appare 1.5s linear; /* Animation d'apparition */
     animation-iteration-count: 1;
     animation-direction: normal;
     animation-fill-mode: forwards;
@@ -64,6 +66,7 @@ section {
     }
 }
 
+/* Effet visuel ajouté autour de la boîte */
 .box::after {
     content: "";
     position: absolute;
@@ -76,11 +79,13 @@ section {
     background: linear-gradient( to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 15%, transparent 50%, transparent 85%, rgba(255, 255, 255, 0.3) 100%);
 }
 
+/* Conteneur du formulaire */
 .box .form {
     position: relative;
     width: 100%;
 }
 
+/* Style du titre du formulaire */
 .box .form h2 {
     color: white;
     font-weight: 600;
@@ -91,6 +96,7 @@ section {
     top: -20px;
 }
 
+/* Style des champs de saisie */
 .box .form .inputBx {
     position: relative;
     width: 100%;
@@ -104,17 +110,19 @@ section {
     background: transparent;
     padding: 8px 10px;
     padding-left: 35px;
-    border-radius: 6px;
-    color: white;
+    border-radius: 6px; /* Coins arrondis */
+    color: white; /* Texte blanc */
     font-size: 16px;
     font-weight: 300;
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.2); /* Ombre interne */
 }
 
-.box .form .inputBx input ::placeholder {
+/* Style des placeholders */
+.box .form .inputBx input::placeholder {
     color: white;
 }
 
+/* Style du bouton de soumission */
 .box .form .inputBx input[type="submit"] {
     background: white;
     color: black;
@@ -127,6 +135,7 @@ section {
     font-size: 16px;
 }
 
+/* Style du bouton de soumission désactivé */
 .box .form .inputBx input[type="submit"]:disabled {
     background: rgb(175, 175, 175);
     color: rgb(116, 116, 116);
@@ -136,14 +145,16 @@ section {
     font-size: 14px;
 }
 
+/* Style des icônes dans les champs de saisie */
 .box .form .inputBx img {
     position: absolute;
     top: 10px;
     left: 10px;
     transition: scale(0.7);
-    filter: invert(1);
+    filter: invert(1); /* Inverser les couleurs pour un contraste blanc */
 }
 
+/* Style de l'option "Se souvenir de moi" */
 .remeber {
     position: relative;
     display: inline-block;
@@ -153,6 +164,7 @@ section {
     cursor: pointer;
 }
 
+/* Style des paragraphes dans le formulaire */
 .box .form p {
     color: white;
     font-weight: 300;
@@ -160,6 +172,7 @@ section {
     margin-top: 5px;
 }
 
+/* Style des liens dans le formulaire */
 .box .form a {
     color: white;
 }
@@ -168,6 +181,7 @@ section {
     color: purple;
 }
 
+/* Ajustements pour les écrans plus petits */
 @media screen and (max-width: 400px) {
     .box {
         padding: 20px;
@@ -176,15 +190,16 @@ section {
     }
 }
 
+/* Style de l'image de l'utilisateur */
 .user {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 50%; /* Image ronde */
     display: block;
     position: relative;
     top: -70px;
-    filter: grayscale(1);
+    filter: grayscale(1); /* Filtre en niveaux de gris */
     margin: auto;
-    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2); /* Ombre autour de l'image */
     border: 5px solid rgba(255, 255, 255, 0.1);
 }

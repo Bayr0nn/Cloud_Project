@@ -12,25 +12,33 @@
     <section>
         <div class="box">
             <div class="form">
+                <!-- Image de l'utilisateur -->
                 <img src="{{ url_for('static', filename='images/_user.jpg') }}" class="user" alt="">
                 <h2>Bon retour</h2>
+                <!-- Formulaire de connexion -->
                 <form action="{{ url_for('login') }}" method="post">
+                    <!-- Champ de saisie du nom d'utilisateur -->
                     <div class="inputBx">
                         <input type="text" name="username" placeholder="Nom d'utilisateur" id="username" oninput="validation()" required autofocus>
                         <img src="{{ url_for('static', filename='images/user.png') }}" alt="">
                     </div>
+                    <!-- Champ de saisie du mot de passe -->
                     <div class="inputBx">
                         <input type="password" name="password" id="password" placeholder="Mot de passe" oninput="validation()" required>
                         <img src="{{ url_for('static', filename='images/lock.png') }}" alt="">
                     </div>
+                    <!-- Option "Se souvenir de moi" -->
                     <label class="remeber"><input type="checkbox"> Se souvenir de moi</label>
+                    <!-- Bouton de soumission -->
                     <div class="inputBx">
                         <input type="submit" name="submit" value="Connexion" id="submit" disabled>
                     </div>
                 </form>
+                <!-- Message d'erreur -->
                 {% if error %}
                 <p style="color:red;">{{ error }}</p>
                 {% endif %}
+                <!-- Lien vers la page d'inscription -->
                 <p>Besoin d'un <a href="{{ url_for('register') }}">compte</a>?</p>
             </div>
         </div>

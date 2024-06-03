@@ -28,8 +28,8 @@ main {
     box-sizing: border-box; /* Inclut le padding dans la largeur totale */
     margin: 0 auto; /* Centre le conteneur principal horizontalement */
     background: rgba(255, 255, 255, 0.1); /* Ajoute un fond transparent pour les éléments principaux */
-    border-radius: 6px;
-    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 6px; /* Ajoute des coins arrondis */
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2); /* Ajoute une ombre autour du conteneur */
 }
 
 .form-group {
@@ -59,16 +59,15 @@ input, select, button {
 }
 
 button {
-    background-color: #007bff;
+    background-color: #007bff; /* Fixe la couleur de fond du bouton */
     color: white;
     border: none;
     cursor: pointer;
     max-width: 300px;
-    background: #007bff; /* Fixe la couleur de fond du bouton */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Change la couleur de fond du bouton au survol */
 }
 
 #results {
@@ -89,15 +88,15 @@ button:hover {
     flex-direction: column; /* Aligne l'image et la légende verticalement */
     align-items: center; /* Centre les éléments horizontalement */
     justify-content: center; /* Centre les éléments verticalement */
-    max-width: 11.5%; /* Ajustez la largeur maximale du conteneur pour avoir 8 images par ligne */
+    max-width: 11.5%; /* Ajuste la largeur maximale du conteneur pour avoir 8 images par ligne */
     margin: 5px;
 }
 
 #topResults img.result-image {
-    width: 100%; /* Ajustez la largeur de l'image à 100% du conteneur */
-    border-radius: 5px; /* Ajoutez un léger arrondi aux bords des images */
+    width: 100%; /* Ajuste la largeur de l'image à 100% du conteneur */
+    border-radius: 5px; /* Ajoute un léger arrondi aux bords des images */
     object-fit: contain; /* Maintient les proportions de l'image */
-    border: 1px solid #ccc; /* Ajoutez une bordure légère aux images */
+    border: 1px solid #ccc; /* Ajoute une bordure légère aux images */
     margin-bottom: 5px; /* Ajoute un espace entre l'image et le texte */
 }
 
@@ -109,10 +108,10 @@ button:hover {
 
 #chosenImage {
     max-width: 100%;
-    max-height: 300px; /* Limite de la hauteur de l'image */
+    max-height: 300px; /* Limite la hauteur de l'image */
     margin-top: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 1px solid #ccc; /* Ajoute une bordure grise */
+    border-radius: 8px; /* Ajoute un léger arrondi aux bords de l'image */
     object-fit: contain; /* Maintenir les proportions de l'image */
     height: auto;
     display: block;
