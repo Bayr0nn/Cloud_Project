@@ -35,15 +35,29 @@ def euclideanDistance(l1, l2):
 def chiSquareDistance(l1, l2):
     n = min(len(l1), len(l2))
     l1, l2 = np.array(l1[:n]), np.array(l2[:n])
+
+    # Shift the vectors to ensure non-negative values
+    shift = min(np.min(l1), np.min(l2))
+    if shift < 0:
+        l1 = l1 - shift
+        l2 = l2 - shift
+
     # To prevent division by zero, add a small epsilon to the denominator
     epsilon = 1e-10
-    chi_square_dist = np.sum(((l1 - l2) ** 2) / (l1 + epsilon))
+    chi_square_dist = np.sum(((l1 - l2) ** 2) / (l1 + l2 + epsilon))
     return chi_square_dist
 
 def bhatta(l1, l2):
     n = min(len(l1), len(l2))
     l1 = np.array(l1[:n], dtype=np.float64)
     l2 = np.array(l2[:n], dtype=np.float64)
+
+    # Shift the vectors to ensure non-negative values
+    shift = min(np.min(l1), np.min(l2))
+    if shift < 0:
+        l1 = l1 - shift
+        l2 = l2 - shift
+
     # Normalize the histograms
     l1 = l1 / np.sum(l1)
     l2 = l2 / np.sum(l2)
@@ -51,6 +65,7 @@ def bhatta(l1, l2):
     bc = np.sum(np.sqrt(l1 * l2))
     # Calculate the Bhattacharyya distance
     bd = -np.log(bc)
+    print(bd)
     return bd
 
 def getkVoisins(lfeatures, test, k, distance_metric):
@@ -76,6 +91,7 @@ def compute_RP(RP_file, top, nom_image_requete, nom_images_non_proches):
     rappel_precision = []
     rp = []
     position1 = int(os.path.splitext(nom_image_requete)[0]) // 100
+    print(position1)
     for j in range(top):
         position2 = int(os.path.splitext(nom_images_non_proches[j])[0]) // 100
         if position1 == position2:
@@ -183,12 +199,12 @@ def search():
     try:
         features1 = load_features(model_name)
         similar_images = recherche(features1, image_index, top, distance_metric)
-        
+
         # Calculer la courbe de rappel/précision et l'enregistrer
         rp_file = 'Projet/rp.txt'
         compute_RP(rp_file, top, similar_images[0], similar_images)
         display_RP(rp_file)
-        
+
         return jsonify(similar_images=similar_images, rp_image='static/rp.jpg')
     except ValueError as e:
         return jsonify(error=str(e))
